@@ -1,5 +1,5 @@
 # dnsdist on Docker
-	
+
 [![](https://badge.imagelayers.io/uniplug/dnsdist-docker:latest.svg)](https://imagelayers.io/?images=uniplug/dnsdist-docker:latest 'Get your own badge on imagelayers.io')
 [![Docker Repository on Quay](https://quay.io/repository/uniplug/dnsdist/status "Docker Repository on Quay")](https://quay.io/repository/uniplug/dnsdist)
 
@@ -36,9 +36,10 @@ docker run -t \
 
 ### Service example with custom config and [jwilder/nginx-proxy](https://hub.docker.com/r/jwilder/nginx-proxy/) as proxy for web interfase
 
-```/data/dnsdist/dnsdist.conf```
 
-```ini
+/data/dnsdist/dnsdist.conf:
+
+```Lua
 newServer{address="8.8.8.8", order=1}
 newServer{address="77.88.8.8", order=2}
 newServer{address="77.88.8.1", order=3}

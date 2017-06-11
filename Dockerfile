@@ -5,9 +5,10 @@ RUN echo 'deb [arch=amd64] http://repo.powerdns.com/debian jessie-dnsdist-11 mai
 
 ADD dnsdist.conf /etc/dnsdist/dnsdist.conf
 ADD dnsdist.pref /etc/apt/preferences.d/dnsdist
+ADD FD380FBB-pub.asc /root/
 
-RUN curl https://repo.powerdns.com/FD380FBB-pub.asc | sudo apt-key add - \
- && apt-get update \
+RUN apt-key add /root/FD380FBB-pub.asc
+RUN apt-get update \
  && apt-get install -y dnsdist \
  && rm -rf /var/lib/apt/lists/*
 
